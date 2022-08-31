@@ -1,0 +1,32 @@
+#lang racket
+
+; ( 1 1 2 3 4)
+; ( (1 2)
+;   (2 1)
+;   (3 1)
+;   (4 1) )
+; (list (cons simbolo1 ocurrencia1)
+;       (cons simbolo2 ocurrencia2)
+;       (cons simbolo2 ocurrencia2)
+
+; (append (cons simbolo1 ocurrencia1) lst) ; asi formo la nueva lista
+; (append (cons simbolo count(simbolo) lst) ; asi formo la nueva lista
+
+; (append (cons simbolo count(simbolo) lst) ; asi formo la nueva lista
+; recursion tail
+;(lst histograma lst-out
+; (create-lst pairs (cdr lst) ())
+; (create-lst pairs (cdr lst) ((e1 o1))
+; (create-lst pairs (cdr lst) ((e1 o1) (e1 o1))
+
+
+(define (add lst e)
+  (cond
+    [(null? lst) (cons e null)]
+    [else
+     (cons (car lst) (append (cdr lst) e))]))
+
+(define (myfn lst-in lst-out)
+  (cond [(null? (cdr lst-in)) lst-out]
+        [else (myfn (cdr lst-in)
+                    (add lst-out (car lst-in)))]))
