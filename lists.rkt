@@ -25,6 +25,9 @@
   (reverse (cons e (reverse lst))))
 
 ;; Recursión Natural
+; en scheme append es concatenar dos listas
+; aca hacemos una sobreescritura de ese método
+; también se puede llamar add
 
 (define (append lst e)
   (cond

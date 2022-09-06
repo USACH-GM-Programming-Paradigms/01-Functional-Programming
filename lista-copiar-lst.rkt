@@ -21,6 +21,7 @@
 
 ;(list-append '(b c) 'a)
 
+;; Unir dos listas (append two list)
 (define (list-append old-list new-el)
   (cond [(null? old-list) (list new-el)]
         [else (cons (car old-list) 

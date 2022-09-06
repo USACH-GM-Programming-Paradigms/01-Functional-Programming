@@ -107,7 +107,6 @@
                    (get-notas estudiante)
                    new-puntaje))
 
-
 ;(define (add-nota estudiante nueva-nota)
 ;  (define (add-nota-in-notas notas new-nota new-lst)
 ;    (cond [(null? (car notas)) new-lst]
