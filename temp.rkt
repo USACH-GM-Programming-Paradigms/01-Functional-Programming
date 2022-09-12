@@ -15,10 +15,7 @@
       (set! count (+ count 1))
       count)))
 
-;Apply-generic uses the dotted-tail notation described in exercise 2.20, because differ
-;ent generic operations may take different numbers of arguments. In apply-generic, op
-;has as its value the first argument to apply-generic and args has as its value a list of
-;the remaining arguments.
+;Composición de funciones
 
 (define (compose f g)
   (define (the-composition . args)

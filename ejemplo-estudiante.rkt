@@ -221,6 +221,9 @@
 
 (image 2 3 (list 0 1 1 0) (list 2 3 4))
 
+;; Descripción: crea una nueva lista sin el valor n
+;; Dom: simbolo n
+;; Rec: lista
 (define (filter-not-eq n)
   (filter (lambda (x) (not (eq? x n))) (list 1 2 3 4 4 1)))
 

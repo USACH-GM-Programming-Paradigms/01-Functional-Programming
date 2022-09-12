@@ -137,6 +137,9 @@
 
 ((sumarN 2) 3)
 
+;; Si se aplica a toda una lista, queda:
+(map (sumarN 5) (list 1 2 3 4))
+
 ;; 2e
 
 ;;; Ilustre a través de un ejemplo el uso de la función sumaN junto a la función filtrar-mapear-reducir
