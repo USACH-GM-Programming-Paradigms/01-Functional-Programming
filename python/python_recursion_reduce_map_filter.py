@@ -47,9 +47,12 @@ def apply2(my_function, my_list, acc):
         if size == 0:
             return acc
 
-        return apply_inner(my_function, my_list, size - 1, my_function(acc, my_list[size - 1]))
-    
+        return apply_inner(
+            my_function, my_list, size - 1, my_function(acc, my_list[size - 1])
+        )
+
     return apply_inner(my_function, my_list, len(my_list), acc)
+
 
 # Dom: list x number x number
 # Rec: number
@@ -72,6 +75,7 @@ def mymap(my_function, my_list):
     for element in my_list:
         result.append(my_function(element))
     return result
+
 
 # Rec: lista
 def square_list(my_list):

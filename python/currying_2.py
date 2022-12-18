@@ -1,7 +1,7 @@
 # Demostración de la Currificación de la composición de una función
 
-# Dom: list x number x number
-# Rec: number
+# Dom: function x function x function
+# Rec: function
 def transformar(b, c, d):
     def a(x):
         return b(c(d(x)))
@@ -9,21 +9,21 @@ def transformar(b, c, d):
     return a
 
 
-# Dom: list x number x number
+# Dom: number
 # Rec: number
 def dias_a_horas(numero_dias):
     """Función que convierte dias a horas."""
     return numero_dias * 24
 
 
-# Dom: list x number x number
+# Dom: number
 # Rec: number
 def horas_a_minutos(numero_horas):
     """Función que convierte horas a minutos."""
     return numero_horas * 60
 
 
-# Dom: list x number x number
+# Dom: number
 # Rec: number
 def minutos_a_segundos(numero_minutos):
     """Función que convierte minutos a segundos."""

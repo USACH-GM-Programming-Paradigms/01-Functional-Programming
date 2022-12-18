@@ -1,7 +1,7 @@
 # Currying en Python - Many to Single Argument
 
 # Dom: number x number x number x number x number
-# Rec: number
+# Rec: void
 def imprimir(a):
     def w(b):
         def x(c):

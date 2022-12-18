@@ -1,8 +1,8 @@
 # Programa en Python para ilustrar que
 # una función puede retornar otra función
 
-# Dom: list x number x number
-# Rec: number
+# Dom: number, number
+# Rec: function
 def crear_sumador(x):
     def suma(y):
         return x + y
