@@ -3,6 +3,7 @@
 (require "01-TDA-Alumno_MiRut.rkt")
 (require "02-TDA-Notas_MiRut.rkt")
 
+;; Work in progress
 ;; Script de pruebas
 
 ; Creación de un alumno (miAlumno)
