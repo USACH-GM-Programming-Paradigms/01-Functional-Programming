@@ -1,0 +1,47 @@
+#lang racket
+
+;; Map
+
+;; Dom: fn X List
+;; Rec: List
+;; Tipo de recursión: natural
+(define (map-natural fn lst)
+  (cond [(null? lst) lst]
+        [else (cons (fn (car lst))
+                    (map-natural fn (cdr lst)))]))
+
+(map-natural (lambda (x) (+ x 1)) (list 1 2 3))
+
+;; Dom: fn X List
+;; Rec: List
+;; Tipo de recursión: tail
+(define (map-rec-tail fn lst)
+  (define (map-tail fn lst acc)
+    (cond [(null? lst) (reverse acc)]  ;; acc entrega la lista al reves, hay que aplicar reverse
+          [else (map-tail fn (cdr lst)
+                          (cons (fn (car lst)) acc))]))
+  (map-tail fn lst null))
+
+(map-rec-tail (lambda (x) (+ x 1)) (list 1 2 3))
+
+;; Dom: fn X List
+;; Rec: List
+;; Tipo de recursión: natural
+(define (filter-natural pred? lst)
+  (cond [(null? lst) lst]
+        [(pred? (car lst)) (cons (car lst)
+                                 (filter-natural pred? (cdr lst)))]
+        [else (filter-natural pred? (cdr lst))]))
+
+(filter-natural even? (list 1 2 3 4))
+
+;; Dom: fn X List
+;; Rec: List
+;; Tipo de recursión: natural
+(define (apply-natural fn lst)
+  (cond [(null? lst) null]
+        [(cond [(null? (cdr lst)) (car lst)]
+               [else (fn (car lst) (apply-natural fn (cdr lst)))])]))
+
+
+(apply-natural + (list 1 2 3))

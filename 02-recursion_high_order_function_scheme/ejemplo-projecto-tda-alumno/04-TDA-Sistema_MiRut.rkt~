@@ -30,23 +30,7 @@
             (#t)
             [else #f]))))
 
-;; RF1. Obtener el nombre de todos los alumnos inscritos en el curso
-(define get-all-nombre-alumnos
-  (lambda (curso)
-    (map (lambda (alumno) (get-nombre-alumno alumno))
-         (get-alumnos curso))))
-
-;; RF1. Obtener todos los alumnos que coincidan con el nombre de búsqueda
-(define filter-alumnos-by-nombre
-  (lambda (curso)
-    (lambda (nombre-consulta)
-      (filter (lambda (alumno) (eq? (get-nombre-alumno alumno) nombre-consulta))
-              (get-alumnos curso)))))
-
-
-
-
-;; RF2. Inscribir alumno
+;; RF1. Inscribir alumno
 ;; Descripción: Función que inscribe un alumno recibiendo su nombre y listado de notas
 ;; Dom: nombre (str) X notas (list number)
 ;; Rec: Curso
@@ -57,7 +41,7 @@
                   (cons (make-alumno nombre-alumno notas-alumno)
                         (get-alumnos curso))))))
 
-;; RF3. Desinscribir alumno
+;; RF2. Desinscribir alumno
 ;; Descripción: Función que desinscribe un alumno recibiendo su nombre
 ;; Dom: nombre (str) X notas (list number)
 ;; Rec: Curso
@@ -71,17 +55,16 @@
 ; Creando un Curso
 ; S0 equivale a State0, es decir, el sistema en estado 0
 (define S0 (make-curso "Paradigmas" (make-alumno "David Gilmour" (make-notas 3 4 5)) (make-alumno "James Hetfield" (make-notas 4 5 6))))
-;S0
+S0
+
+; Verifica si existe el alumno en cierto estado del sistema
+(define existe-alumno-gonzalo-en-S0? ((run S0 exists-alumno?) "Gonzalo"))
+existe-alumno-gonzalo-en-S0?
 
 ; Inscribir alumno
-(define S1 ((run S0 inscribir-alumno) "Gonzalo" (make-notas 3 4 2)))
-;S1
+(define S1 ((run S0 inscribir-alumno) "Gonzalo" (make-notas 3.3 4.4 5.5)))
+S1
 
-(define NombresAlumnosS0 (get-all-nombre-alumnos S0))
-;NombresAlumnosS0
-
-(define NombresAlumnosS1 (get-all-nombre-alumnos S1))
-;NombresAlumnosS1
-
-(define S3 ((run S0 filter-alumnos-by-nombre) "Gonzalo"))
-S3
+;; Pendiente (WIP, Work in Progress)
+(define S2 ((run S1 desinscribir-alumno) "Gonzalo"))
+S2
