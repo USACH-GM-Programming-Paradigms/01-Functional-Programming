@@ -2,13 +2,17 @@
 
 ;; Currificación
 
-;; Sabemos que una funcion recibe n parametros
+;; Sabemos que una función recibe n parámetros
+;; Estos parámetros son símbolos que pueden ser números, strings, funciones, listas, etc
 
 (define (calculadora operacion n1 n2)
   (operacion n1 n2))
 
 (define (suma n1 n2)
   (+ n1 n2))
+
+;; Currificación es una técnica de programación en la cual logramos que una función solo ocupe
+;; un argumento a la vez
 
 (define calculadora-curry2
   (lambda (operacion)
@@ -23,10 +27,13 @@
 
 ;; Ejecución
 
+; Sin currificación
 (calculadora suma 1 2)
 
+; Con currificación de un sólo parámetro
 ((calculadora-curry2 suma) 1 2)
 
+; Con currificación de todos los parámetros
 (((calculadora-curry3 suma) 1) 2)
 
 
